@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Tic Tac Toe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Login Screen -->
+        <div id="login-screen" class="screen full-center active">
+            <div class="glass-card">
+                <h1 class="gradient-text">Tic Tac Toe</h1>
+                <p>Welcome to the ultimate multiplayer experience</p>
+                <div class="input-group">
+                    <input type="text" id="username-input" placeholder="Enter your username" autocomplete="off" />
+                    <button class="btn primary" id="login-btn">Join Matchmaking</button>
+                </div>
+                <p id="login-error" class="error-text"></p>
+            </div>
+        </div>
+
+        <!-- Dashboard Screen -->
+        <div id="dashboard-screen" class="screen">
+            <header class="glass-nav">
+                <h2 class="gradient-text">Lobby</h2>
+                <div class="user-info">
+                    <span id="current-username"></span>
+                    <button class="btn small" id="logout-btn">Log Out</button>
+                </div>
+            </header>
+            
+            <main class="dashboard-content">
+                <div class="glass-panel" id="online-users-panel">
+                    <h3>Online Players</h3>
+                    <ul id="online-users-list"></ul>
+                </div>
+                
+                <div class="glass-panel" id="history-panel">
+                    <h3>Search Player History</h3>
+                    <div class="search-bar">
+                        <input type="text" id="search-input" placeholder="Search a player..." />
+                        <button class="btn small primary" id="search-btn">Search</button>
+                    </div>
+                    <ul id="search-results-list"></ul>
+                    <h4 class="mt-4">Match History</h4>
+                    <ul id="history-list"></ul>
+                </div>
+            </main>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen full-center">
+            <div class="glass-card game-card">
+                <header class="game-header">
+                    <div class="player player-x">
+                        <span id="player-x-name">Player 1</span>
+                        <div class="symbol">X</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="player player-o">
+                        <span id="player-o-name">Player 2</span>
+                        <div class="symbol">O</div>
+                    </div>
+                </header>
+                
+                <h3 id="game-status" class="status-msg gradient-text">Wait for your turn...</h3>
+                
+                <div class="board" id="board">
+                    <div class="cell" data-index="0"></div>
+                    <div class="cell" data-index="1"></div>
+                    <div class="cell" data-index="2"></div>
+                    <div class="cell" data-index="3"></div>
+                    <div class="cell" data-index="4"></div>
+                    <div class="cell" data-index="5"></div>
+                    <div class="cell" data-index="6"></div>
+                    <div class="cell" data-index="7"></div>
+                    <div class="cell" data-index="8"></div>
+                </div>
+
+                <button class="btn danger mt-4" id="leave-btn">Leave Match</button>
+            </div>
+        </div>
+
+        <!-- Challenge Modal -->
+        <div id="challenge-modal" class="modal-overlay">
+            <div class="glass-card modal">
+                <h3 class="gradient-text">Challenge Received!</h3>
+                <p><span id="challenger-name">Player</span> has challenged you.</p>
+                <div class="modal-actions">
+                    <button class="btn primary" id="accept-challenge">Accept</button>
+                    <button class="btn danger" id="reject-challenge">Decline</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Socket.io -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
