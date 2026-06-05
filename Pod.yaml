@@ -1,0 +1,15 @@
+apiVersion:  v1
+kind: Pod
+metadata:
+  name: xo-game-pod
+  labels:
+    app: xo-pods
+    tier: frontend
+spec:
+  containers:
+    - name: xo_container
+      image: prabhakar2706/fullstack-xo:latest
+      
+     
+
+
