@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
     - name: xo_container
-      image: prabhakar2706/fullstack-xo:latest
+      image: prabhakar2706/fullstack-xo-jenkins:latest
       
      
 
