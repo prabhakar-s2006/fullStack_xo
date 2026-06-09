@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('git checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/prabhakar-s2006/fullStack_xo.git'
+                git branch: 'main', url: 'https://github.com/prabhakar-s2006/Devops_pipeline.git'
             }
         }
         stage('docker build ') {
